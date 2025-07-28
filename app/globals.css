@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255; /* White font */
+  --background-start-rgb: 0, 0, 0; /* Black background */
+  --background-end-rgb: 0, 0, 0;   /* Black background */
+
+  /* Shadcn custom properties */
+  --background: 0 0% 0%; /* Black */
+  --foreground: 0 0% 98%; /* White */
+  --card: 0 0% 3.9%; /* Near black for cards */
+  --card-foreground: 0 0% 98%; /* White */
+  --popover: 0 0% 3.9%; /* Near black for popovers */
+  --popover-foreground: 0 0% 98%; /* White */
+  --primary: 0 0% 98%; /* White as primary */
+  --primary-foreground: 0 0% 9%; /* Dark for text on primary */
+  --secondary: 0 0% 14.9%; /* Dark grey for secondary */
+  --secondary-foreground: 0 0% 98%; /* White */
+  --muted: 0 0% 14.9%; /* Dark grey for muted */
+  --muted-foreground: 0 0% 63.9%; /* Lighter grey for muted text */
+  --accent: 0 0% 14.9%; /* Dark grey for accent */
+  --accent-foreground: 0 0% 98%; /* White */
+  --destructive: 0 84.2% 60.2%; /* Red for destructive */
+  --destructive-foreground: 0 0% 98%; /* White */
+  --border: 0 0% 14.9%; /* Dark grey for borders */
+  --input: 0 0% 14.9%; /* Dark grey for input backgrounds */
+  --ring: 0 0% 83.1%; /* Light grey for focus rings */
+  --radius: 0.5rem; /* Default border radius */
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Satoshi', sans-serif;
+  background: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Sora', sans-serif;
+}
+
+
+
+/* Scroll Animations */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Navigation */
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 12px 24px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.nav-item {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Cards */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Experience Timeline */
+.timeline-line {
+  position: absolute;
+  left: 12px;
+  top: 30px;
+  bottom: -20px;
+  width: 2px;
+  background: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0.3));
+}
+
+.timeline-dot {
+  position: relative;
+  z-index: 2;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 4px solid #000000;
+  flex-shrink: 0;
+}
+
+.timeline-dot.active {
+  background: #00ff00;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+/* Skills Animation */
+.skill-item {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.skill-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Projects */
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-10px);
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+/* Testimonials */
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-5px);
+}
+
+/* Company Scroll Animation */
+@keyframes companyScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%); /* Adjust based on content width */
+  }
+}
+
+.company-scroll-animation {
+  animation: companyScroll 30s linear infinite; /* Adjust duration as needed */
+}
+
+/* Skill Scroll Animations */
+@keyframes skillScrollLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes skillScrollRight {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.skill-scroll-left {
+  animation: skillScrollLeft 20s linear infinite;
+}
+
+.skill-scroll-right {
+  animation: skillScrollRight 20s linear infinite;
+}
+
+/* Buttons */
+.btn-primary {
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: scale(1.05);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-hire-me {
+  background: linear-gradient(to right, #007bff, #ffffff); /* Blue to White Gradient */
+  color: #000000; /* Text color for contrast */
+  border: none;
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-hire-me:hover {
+  background: linear-gradient(to right, #0056b3, #e0e0e0); /* Darker blue to lighter white on hover */
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    transform: none;
+    padding: 8px 16px;
+  }
+  
+  .card {
+    padding: 16px;
+  }
+  
+  .project-image {
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 6px 12px;
+  }
+  
+  .nav-item {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+  
+  .card {
+    padding: 12px;
+  }
+}
+
+/* Loading Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection */
+::selection {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
