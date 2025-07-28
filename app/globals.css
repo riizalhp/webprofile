@@ -144,7 +144,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Skills Animation */
-.skill-item {
+.skill-item, .tool-item {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 25px;
@@ -155,9 +155,18 @@ h1, h2, h3, h4, h5, h6 {
   white-space: nowrap;
 }
 
-.skill-item:hover {
+.skill-item:hover, .tool-item:hover {
   background: rgba(255, 255, 255, 0.2);
   transform: scale(1.05);
+}
+
+/* Tool Icon Styling */
+.tool-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  color: #ffffff;
+  margin-bottom: 8px;
 }
 
 /* Projects */

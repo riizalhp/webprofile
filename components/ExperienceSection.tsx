@@ -27,24 +27,20 @@ export default function ExperienceSection() {
 
   const companies = [
     {
-      name: "Microsoft",
-      logo: "https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg"
+      name: "Siva Group",
+      logo: "https://siva.jsstatic.com/id/18520/images/banner/18520_banner_0_902087.jpg"
     },
     {
-      name: "Google",
-      logo: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg"
+      name: "Pindad",
+      logo: "https://pindad.com/uploads/images/article/full/logo_PINDAD_sedang19.jpg"
     },
     {
-      name: "Apple",
-      logo: "https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg"
+      name: "Gemala Kempa Daya",
+      logo: "https://media.cakeresume.com/image/upload/s--mLgymx6L--/c_pad,fl_png8,h_400,w_400/v1691049763/dmqpwvv9mf8l0v9nuest.png"
     },
     {
-      name: "Meta",
-      logo: "https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg"
-    },
-    {
-      name: "Amazon",
-      logo: "https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg"
+      name: "ITC UPN Veteran",
+      logo: "https://tse4.mm.bing.net/th/id/OIP.ZqZwhFxO_XFLlQP_PI6ZJQHaCe?pid=Api&P=0&h=180"
     }
   ];
 
@@ -94,17 +90,17 @@ export default function ExperienceSection() {
             {/* Company | Worked With */}
             <div className="card scroll-animate mt-8">
               <h3 className="text-xl font-bold mb-6">Company | Worked With</h3>
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {companies.map((company, index) => (
-                  <div key={index} className="tool-item cursor-hover">
+                  <div key={index} className="flex flex-col items-center p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-all cursor-hover">
                     <Image
                       src={company.logo}
                       alt={company.name}
-                      width={40}
+                      width={60}
                       height={40}
-                      className="rounded-lg"
+                      className="rounded-lg object-contain mb-2"
                     />
-                    <span className="text-xs text-white/70">{company.name}</span>
+                    <span className="text-xs text-white/70 text-center">{company.name}</span>
                   </div>
                 ))}
               </div>
@@ -162,7 +158,7 @@ function ToolsCard() {
       </p>
       <div className="grid grid-cols-2 gap-4">
         {tools.map((tool, index) => (
-          <div key={index} className="tool-item cursor-hover">
+          <div key={index} className="flex flex-col items-center p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-all cursor-hover">
             <svg className="tool-icon" viewBox="0 0 24 24">
               <path d={tool.icon} />
             </svg>
